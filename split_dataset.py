@@ -69,8 +69,8 @@ def split_client_task(dataset, y_list, client_num, task_num, class_each_task, cl
 
 def main(args):
     if args.dataset=='EMNIST-letters' or args.dataset=='EMNIST-letters-shuffle':
-        data_train = datasets.EMNIST(args.datadir, 'letters', download=False, train=True)
-        data_test = datasets.EMNIST(args.datadir, 'letters', download=False, train=False)
+        data_train = datasets.EMNIST(args.datadir, 'letters', download=False, train=True, target_transform=lambda x:x-1)
+        data_test = datasets.EMNIST(args.datadir, 'letters', download=False, train=False, target_transform=lambda x:x-1)
 
     elif args.dataset=='CIFAR100':
         data_train = datasets.CIFAR100(args.datadir, download=False, train=True)
